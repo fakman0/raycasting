@@ -364,7 +364,7 @@ int main()
     g.image->image = mlx_new_image(g.mlx, SW, SH);
     g.image->addr = (int*)mlx_get_data_addr(g.image->image, &a, &a, &a);
     int b;
-    char *path = "./kratos.xpm";
+    char *path = "./image.xpm";
     g.NO = malloc(sizeof(t_image));
     if (!g.NO)
     {
