@@ -141,16 +141,6 @@ void createMap(g *g)
 int create_trgb(int t, int r, int g, int b) {
     return (t << 24 | r << 16 | g << 8 | b);
 }
-int game(g *g)
-{
-    movement(g);
-    rotate(g);
-    raycast(g);
-
-    return (0);
-}
-
-
 
 void raycast(g *g)
 {
@@ -273,6 +263,7 @@ void raycast(g *g)
     }
     mlx_put_image_to_window(g->mlx, g->mlxWin, g->image->image, 0, 0);
 }
+
 void movement(g *g)
 {
     if (g->w)
@@ -303,8 +294,8 @@ void movement(g *g)
         if (g->map[(int)(g->posY - g->planeY * g->speed)][(int)(g->posX)] != '1')
             g->posY -= g->planeY * g->speed;
     }
-
 }
+
 void rotate(g *g)
 {
     double oldDirX;
@@ -334,7 +325,14 @@ void rotate(g *g)
     }
 }
 
+int game(g *g)
+{
+    movement(g);
+    rotate(g);
+    raycast(g);
 
+    return (0);
+}
 int main()
 {
     g g;
